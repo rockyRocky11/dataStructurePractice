@@ -6,8 +6,10 @@ public class Counting {
     public static void main(String[] args) {
 
         int[] inputArray = {2, 5, 9, 8, 2, 8, 7, 10, 4, 3};
+        int max = 10;
+        int min= 1;
 
-        int[] countingArray = new int[inputArray.length];
+        int[] countingArray = new int[(max - min)+1];
 
         for (int i=0;i< inputArray.length;i++){
             countingArray[inputArray[i]-1]++;
