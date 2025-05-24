@@ -25,6 +25,7 @@ public class HashMaprPrac {
         }
         Employee employee = mapPrac.putIfAbsent("Doe", mikeWilson);
         System.out.println("putIfAbsent "+employee);
+        System.out.println("getDefatult "+mapPrac.getOrDefault("random", mikeWilson));
 
         mapPrac.forEach((k, v)->System.out.println("Key ="+k+" Employee "+v));
 
