@@ -12,7 +12,7 @@ public class MaxHeaps {
         heap.insert(52);
         heap.insert(67);
         heap.printHeap();
-        heap.delete(0);
+        heap.sort();
         heap.printHeap();
 
     }
