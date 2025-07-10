@@ -1,6 +1,6 @@
 package com.data.structures.practice.Heap;
 
-public class Heap {
+public class  Heap {
     private int[] heap;
     private int size;// This is next available position
 
@@ -99,6 +99,7 @@ public class Heap {
 
     public void fixHeapAbove(int index) {
         int newValue = heap[index];
+        //keep comparing until newValue is greater then its root.
         while (index > 0 && newValue > heap[getParent(index)]) {
             heap[index] = heap[getParent(index)];
             index = getParent(index);

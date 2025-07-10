@@ -1,5 +1,7 @@
 package com.data.structures.practice.treePrac;
 
+import java.util.*;
+
 public class TreeNode {
     private int data;
     private TreeNode leftChild;
@@ -30,6 +32,30 @@ public class TreeNode {
                 rightChild.insert(value);
             }
         }
+    }
+
+
+
+    public int insertlevel(TreeNode root, int v) {
+
+        Queue<TreeNode> q = new LinkedList<>();
+        q.add(root);
+        while (!q.isEmpty()) {
+            TreeNode node = q.poll();
+            if (node.getLeftChild() == null) {
+                node.setLeftChild(new TreeNode(v));
+                return node.getData(); // returns parent’s value
+            } else {
+                q.add(node.getLeftChild());
+            }
+            if (node.getRightChild() == null) {
+                node.setRightChild(new TreeNode(v));
+                return node.getData();
+            } else {
+                q.add(node.getRightChild());
+            }
+        }
+        return -1; // should not happen
     }
 
     public TreeNode get(int value){
@@ -99,5 +125,78 @@ public class TreeNode {
 
     public void setRightChild(TreeNode rightChild) {
         this.rightChild = rightChild;
+    }
+
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+
+        while (root != null || !stack.isEmpty()) {
+            while (root != null) {
+                stack.push(root);
+                root = root.leftChild;
+            }
+            root = stack.pop();
+            res.add(root.data);
+            root = root.rightChild;
+        }
+        return res;
+    }
+
+    public static boolean IsMirror(TreeNode root1, TreeNode root2) {
+        // TODO Auto-generated method stub
+        if (root1 == null && root2 == null) {
+            return true;
+        }
+        if (root1 == null || root2 == null) {
+            return false;
+        }
+        if (root1.data != root2.data) {
+            return false;
+        }
+
+        boolean fs = IsMirror(root1.leftChild, root2.rightChild);
+        boolean ss = IsMirror(root1.rightChild, root2.leftChild);
+
+        return fs && ss;
+    }
+
+    public List<Integer> inorderReverseTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+
+        while (root != null || !stack.isEmpty()) {
+            while (root != null) {
+                stack.push(root);
+                root = root.rightChild;
+            }
+            root = stack.pop();
+            res.add(root.data);
+            root = root.leftChild;
+        }
+        return res;
+    }
+
+    public boolean inorderTraversalComp(TreeNode root, TreeNode root1) {
+        //List<Integer> res = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+        Stack<TreeNode> stack1 = new Stack<>();
+
+        while ((root != null && root1 != null)|| !stack.isEmpty()) {
+            while (root != null && root1 != null) {
+                stack.push(root);
+                stack1.push(root1);
+                root = root.leftChild;
+                root1 = root1.leftChild;
+            }
+            root = stack.pop();
+            root1 = stack1.pop();
+            if(root.data != root1.data){
+                return false;
+            }
+            root = root.rightChild;
+            root1 = root1.rightChild;
+        }
+        return true;
     }
 }

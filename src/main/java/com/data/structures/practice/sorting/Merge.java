@@ -47,7 +47,7 @@ public class Merge {
         while(i<mid && j < end){
             tempArray[tempIndex++] = inputArray[i] < inputArray[j]? inputArray[i++]: inputArray[j++];
         }
-        System.arraycopy(inputArray, i, inputArray, start+tempIndex, mid-i);
+        System.arraycopy(inputArray, i, inputArray, start+tempIndex, mid-i); // This is to take care of left overs on the left side, we dont have to worry about the right side
         System.arraycopy(tempArray, 0, inputArray, start, tempIndex);
 
     }

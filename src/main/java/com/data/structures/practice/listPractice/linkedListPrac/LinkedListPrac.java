@@ -12,10 +12,13 @@ public class LinkedListPrac {
         list.addToFront(new Employee(3, "vivek3", "dev2"));
         list.addToFront(new Employee(4, "vivek4", "dev3"));
         list.PrintLinkedList();
-        System.out.println(list.getSize());
-        System.out.println(list.isEmpty());
-        list.removeFromFront();
+       //System.out.println(list.getSize());
+        //System.out.println(list.isEmpty());
+        //list.removeFromFront();
+        //list.PrintLinkedList();
+       // System.out.println(list.getSize());
+        list.addToTail(new Employee(0, "Last", "guy"));
         list.PrintLinkedList();
-        System.out.println(list.getSize());
+
     }
 }

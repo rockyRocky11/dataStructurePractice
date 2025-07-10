@@ -18,6 +18,11 @@ public class PriorityQueuePrac {
 //        System.out.println("Peek :"+pq.peek());
 //        System.out.println("Poll :"+pq.poll());
 //        System.out.println("Peek :"+pq.peek());
+        System.out.println("Array Here");
+        Object[] ints6 = pq.toArray();
+        for(Object num:ints6){
+            System.out.println(num);
+        }
         System.out.println("Remove :"+pq.remove(54));
 //        System.out.println("Peek :"+pq.peek());
 //        System.out.println("Remove :"+pq.remove(55));
@@ -28,14 +33,17 @@ public class PriorityQueuePrac {
         }
 
 
-        PriorityQueue<Integer> maxPQ = new PriorityQueue<>(Collections.reverseOrder());
+        PriorityQueue<Integer> maxPQ = new PriorityQueue<>();
 
         // Add elements to the priority queue
         maxPQ.add(10);
         maxPQ.add(30);
+        maxPQ.add(1);
+
         maxPQ.add(20);
         maxPQ.add(5);
         System.out.println("Array Here");
+
 
         // Remove and print elements from the priority queue
         Object[] ints1 = maxPQ.toArray();
@@ -43,8 +51,11 @@ public class PriorityQueuePrac {
             System.out.println(num);
         }
 
-
-
+        maxPQ.remove(10);
+        Object[] ints2 = maxPQ.toArray();
+        for(Object num:ints2){
+            System.out.println(num);
+        }
 
     }
 }

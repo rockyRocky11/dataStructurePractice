@@ -12,6 +12,16 @@ public class EmployeeLinkedList {
         size++;
     }
 
+    public void addToTail (Employee employee){
+        EmployeeNodeDto node = new EmployeeNodeDto(employee);
+        EmployeeNodeDto currentNode = head;
+        while(currentNode.next !=null){
+            currentNode = currentNode.next;
+        }
+        currentNode.next=node;
+
+    }
+
     public EmployeeNodeDto removeFromFront(){
         if(isEmpty()){
             return null;

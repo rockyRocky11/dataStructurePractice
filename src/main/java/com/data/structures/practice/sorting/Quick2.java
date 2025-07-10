@@ -49,6 +49,8 @@ public class Quick2 {
             }
         }
         inputArray[j] = pivotElement;
+        int[] slice1 = Arrays.copyOfRange(inputArray, start, end);
+        System.out.println(Arrays.toString(slice1));
         return j;
     }
 }
