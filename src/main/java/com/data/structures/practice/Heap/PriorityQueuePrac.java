@@ -20,6 +20,7 @@ public class PriorityQueuePrac {
 //        System.out.println("Peek :"+pq.peek());
         System.out.println("Array Here");
         Object[] ints6 = pq.toArray();
+
         for(Object num:ints6){
             System.out.println(num);
         }

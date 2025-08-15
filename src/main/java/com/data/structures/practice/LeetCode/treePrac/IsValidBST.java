@@ -1,10 +1,5 @@
 package com.data.structures.practice.LeetCode.treePrac;
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.List;
-
 public class IsValidBST {
     private static boolean isValid = true;
 
@@ -17,7 +12,7 @@ public class IsValidBST {
         // Integer[] root = {25, 20, 27, 15, 22, 26, 30,null, null,null, null, null, null, 29, 32};
         // Integer[] root = {98,-57,null,null,58,31};
         //Integer[] root = {45,42,null,null,44,43,null,41};
-        TreeNode tree = new TreeNode();
+        TreeNodeImpl tree = new TreeNodeImpl();
         tree = tree.inertBulkLevelOrder(root);
 
         System.out.println(isValidBST(tree));
@@ -29,7 +24,7 @@ public class IsValidBST {
     /*Time COmplexity: O(N)
     Space COmplexity: O(N)*/
 
-    public static boolean isValidBST(TreeNode root) {
+    public static boolean isValidBST(TreeNodeImpl root) {
 
         if (root.left == null && root.right == null) {
             return true;
@@ -39,7 +34,7 @@ public class IsValidBST {
         return inOrderTraversal(root, Long.MIN_VALUE, Long.MAX_VALUE);
     }
 
-    public static boolean inOrderTraversal(TreeNode root, Long min, Long max) {
+    public static boolean inOrderTraversal(TreeNodeImpl root, Long min, Long max) {
 
         if (root == null) {
             return true;

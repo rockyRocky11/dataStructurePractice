@@ -1,7 +1,6 @@
 package com.data.structures.practice.LeetCode.treePrac;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Stack;
 
@@ -10,7 +9,7 @@ public class IsBalanced {
         //Integer[] input = {3,9,20,null,null,15,7};
         //Integer[] input = {1,2,2,3,3,null,null,4,4};
         Integer[] input = {1, 2, null, 3, null, 4, null, 5};
-        TreeNode treeNode = new TreeNode();
+        TreeNodeImpl treeNode = new TreeNodeImpl();
         treeNode = treeNode.inertBulkLevelOrder(input);
         System.out.println(isBalanced(treeNode));
 
@@ -28,7 +27,7 @@ public class IsBalanced {
     0(n)/ O(h)  – recursion stack depth = tree height (worst-case O(n), best-case O(log n))*/
 
 
-    public static boolean isBalanced(TreeNode root) {
+    public static boolean isBalanced(TreeNodeImpl root) {
 
         if (root == null || (root.left == null && root.right == null)) {
             return true;
@@ -38,7 +37,7 @@ public class IsBalanced {
         return failed[0] == 0;
     }
 
-    public static int maxDepth(TreeNode root, int[] failed) {
+    public static int maxDepth(TreeNodeImpl root, int[] failed) {
 
         if (root == null) {
             return 0;
@@ -56,10 +55,10 @@ public class IsBalanced {
 
     /*
         This is bottom up approach(DFS) Iterative - */
-    public boolean isBalancedUsingIterative(TreeNode root) {
-        Stack<TreeNode> stack = new Stack<>();
-        TreeNode node = root, last = null;
-        Map<TreeNode, Integer> depths = new HashMap<>();
+    public boolean isBalancedUsingIterative(TreeNodeImpl root) {
+        Stack<TreeNodeImpl> stack = new Stack<>();
+        TreeNodeImpl node = root, last = null;
+        Map<TreeNodeImpl, Integer> depths = new HashMap<>();
 
         while (!stack.isEmpty() || node != null) {
             if (node != null) {

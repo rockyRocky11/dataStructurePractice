@@ -7,16 +7,16 @@ import java.util.Stack;
 public class BinarySearchTree {
 
     public static void main(String[] args) {
-//        Tree intTree = new Tree();
-//        intTree.insert(25);
-//        intTree.insert(20);
-//        intTree.insert(15);
-//        intTree.insert(27);
-//        intTree.insert(30);
-//        intTree.insert(29);
-//        intTree.insert(26);
-//        intTree.insert(22);
-//        intTree.insert(32);
+        Tree intTree = new Tree();
+        intTree.insert(25);
+        intTree.insert(20);
+        intTree.insert(15);
+        intTree.insert(27);
+        intTree.insert(30);
+        intTree.insert(29);
+        intTree.insert(26);
+        intTree.insert(22);
+        intTree.insert(32);
 //       // intTree.insert(17);
 //        //intTree.traverseInOrder();
 //        //System.out.println();
@@ -57,14 +57,23 @@ public class BinarySearchTree {
 //        intTree1.insertlevel(0);
 //        intTree1.insertlevel(2);
         Tree intTree1 = new Tree();
-        Integer[] in ={1,2,2,3,4,4,3};
+      //  Integer[] in ={1,2,2,3,4,4,3};
+        Integer[] in ={25, 20, 27, 15, 22, 26, 30, 29, 32};
         //Integer[] in ={1,2,2,null,3,null,3};
         intTree1.buildTree(in);
         TreeNode treeNode = new TreeNode(10);
-        List<Integer> res1 = treeNode.inorderTraversal(intTree1.getData().getLeftChild());
-        System.out.println(res1);
+        List<Integer> res1 = treeNode.inorderTraversal(intTree.getData());
+        List<Integer> res31 = treeNode.postOrderTraversal(intTree.getData());
+        List<Integer> res32 = treeNode.preorderTraversal(intTree.getData());
+        List<Integer> res33 = treeNode.inorderReverseTraversal(intTree.getData());
+        List<List<Integer>> res34 = treeNode.levelOrder1(intTree.getData());
+        System.out.println("InOrder "+res1);
+        System.out.println("InOrder Reverse "+res33);
+        System.out.println("PostOrder "+res31);
+        System.out.println("PreOrder "+res32);
+        System.out.println("LevelOrder "+res34);
 
-        List<Integer> res2 = treeNode.inorderReverseTraversal(intTree1.getData().getRightChild());
+        /*List<Integer> res2 = treeNode.inorderReverseTraversal(intTree1.getData().getRightChild());
         System.out.println(res2);
 
         System.out.println(treeNode.IsMirror(intTree1.getData().getLeftChild(), intTree1.getData().getRightChild()));
@@ -84,7 +93,7 @@ public class BinarySearchTree {
         List<Integer> res3 = intTree2.inorderTraversal();
         System.out.println(intTree2.inorderTraversal());
 
-        System.out.println(inorderTraversalComp1(intTree1.getData(), intTree2.getData()));
+        System.out.println(inorderTraversalComp1(intTree1.getData(), intTree2.getData()));*/
 
 //        int i=0;
 //        int j=0;

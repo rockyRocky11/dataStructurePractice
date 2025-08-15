@@ -4,13 +4,13 @@ public class hasPathSum {
     public static void main(String[] args) {
         //Integer[] root = {5,4,8,11,null,13,4,7,2,null,null,null,1}; // Expected output: true
         Integer[] root = {1}; // Expected output: true
-        TreeNode tree = new TreeNode();
+        TreeNodeImpl tree = new TreeNodeImpl();
         tree = tree.inertBulkLevelOrder(root);
         //System.out.println(hasPathSum(tree, 22));
         System.out.println(hasPathSum(tree, 1));
     }
 
-    public boolean hasPathSumSpecial(TreeNode root, int targetSum) {
+    public boolean hasPathSumSpecial(TreeNodeImpl root, int targetSum) {
         if(root==null)
             return false;
         if(root.val==targetSum && root.left == null && root.right==null)
@@ -20,7 +20,7 @@ public class hasPathSum {
 
     }
 
-    public static boolean hasPathSum(TreeNode root, int targetSum) {
+    public static boolean hasPathSum(TreeNodeImpl root, int targetSum) {
         if(root == null){
             return false;
         }
@@ -30,7 +30,7 @@ public class hasPathSum {
         return dfs(root, targetSum, sum);
     }
 
-    public static boolean dfs(TreeNode root, int targetSum, int[] sum){
+    public static boolean dfs(TreeNodeImpl root, int targetSum, int[] sum){
 
        if(isLeafNode(root)){
            return sum[0] == targetSum;
@@ -56,7 +56,7 @@ public class hasPathSum {
         return false;
     }
 
-    public static boolean isLeafNode(TreeNode root){
+    public static boolean isLeafNode(TreeNodeImpl root){
         return root != null && root.left == null && root.right == null;
     }
 }

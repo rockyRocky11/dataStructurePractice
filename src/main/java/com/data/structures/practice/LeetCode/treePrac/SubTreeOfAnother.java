@@ -8,14 +8,14 @@ public class SubTreeOfAnother {
         //Integer[] root = {3,4,5,1,2}, subRoot = {4,1,2};
         Integer[] root = {4,-9,5,null,-1,null,8,-6,0,7,null,null,-2,null,null,null,null,-3}, subRoot = {5};
         //Integer[] root = {1, 1}, subRoot = {1};
-        TreeNode tree = new TreeNode();
+        TreeNodeImpl tree = new TreeNodeImpl();
         tree = tree.inertBulkLevelOrder(root);
-        TreeNode subTree = new TreeNode();
+        TreeNodeImpl subTree = new TreeNodeImpl();
         subTree = tree.inertBulkLevelOrder(subRoot);
         System.out.println(isSubtree(tree, subTree));
     }
 
-    public static boolean isSubtree1(TreeNode root, TreeNode subRoot) {
+    public static boolean isSubtree1(TreeNodeImpl root, TreeNodeImpl subRoot) {
 
         return findMatchingRoot(root, subRoot);
       /*  if(matchingRoot == null){
@@ -26,18 +26,18 @@ public class SubTreeOfAnother {
 
     }
 
-    public static boolean findMatchingRoot(TreeNode root, TreeNode subRoot) {
+    public static boolean findMatchingRoot(TreeNodeImpl root, TreeNodeImpl subRoot) {
 
-        TreeNode matchingRoot = root;
+        TreeNodeImpl matchingRoot = root;
         if (matchingRoot.val == subRoot.val) {
             if (isSame(matchingRoot, subRoot)) {
                 return true;
             }
         }
-        Deque<TreeNode> deque = new ArrayDeque<>();
+        Deque<TreeNodeImpl> deque = new ArrayDeque<>();
         deque.offer(matchingRoot);
         while (!deque.isEmpty()) {
-            TreeNode tempNode = deque.poll();
+            TreeNodeImpl tempNode = deque.poll();
             matchingRoot = tempNode;
             if (tempNode.left != null) {
                 if (subRoot.val == tempNode.left.val) {
@@ -60,7 +60,7 @@ public class SubTreeOfAnother {
 
     }
 
-    public static boolean isSame(TreeNode p, TreeNode q) {
+    public static boolean isSame(TreeNodeImpl p, TreeNodeImpl q) {
 
         if(p == null && q == null){
             return true;
@@ -75,7 +75,7 @@ public class SubTreeOfAnother {
         return isSame(p.left, q.left) && isSame(p.right, q.right);
     }
 
-    public static boolean isSubtree(TreeNode root, TreeNode subRoot) {
+    public static boolean isSubtree(TreeNodeImpl root, TreeNodeImpl subRoot) {
 
         if(root == null){
             return false;
@@ -88,16 +88,16 @@ public class SubTreeOfAnother {
 
     }
 
-    public static boolean findMatch(TreeNode root, TreeNode subRoot) {
+    public static boolean findMatch(TreeNodeImpl root, TreeNodeImpl subRoot) {
 
 
-        Deque<TreeNode> deque = new ArrayDeque<>();
-        Deque<TreeNode> subDeque = new ArrayDeque<>();
+        Deque<TreeNodeImpl> deque = new ArrayDeque<>();
+        Deque<TreeNodeImpl> subDeque = new ArrayDeque<>();
         deque.offer(root);
         subDeque.offer(subRoot);
         while (!deque.isEmpty() && !subDeque.isEmpty()) {
-            TreeNode tempNode = deque.poll();
-            TreeNode subTempNode = subDeque.poll();
+            TreeNodeImpl tempNode = deque.poll();
+            TreeNodeImpl subTempNode = subDeque.poll();
 
             if (tempNode.left == null && subTempNode.left == null) {
                 System.out.println("Both NUll");

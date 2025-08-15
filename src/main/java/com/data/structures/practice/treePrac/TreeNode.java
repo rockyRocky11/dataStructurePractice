@@ -143,22 +143,88 @@ public class TreeNode {
         return res;
     }
 
-    public static boolean IsMirror(TreeNode root1, TreeNode root2) {
-        // TODO Auto-generated method stub
-        if (root1 == null && root2 == null) {
-            return true;
-        }
-        if (root1 == null || root2 == null) {
-            return false;
-        }
-        if (root1.data != root2.data) {
-            return false;
+    public List<Integer> postOrderTraversal(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+        if (root == null) return result;
+
+        Stack<TreeNode> stk1 = new Stack<>();
+        Stack<TreeNode> stk2 = new Stack<>();
+        stk1.push(root);
+        //root--> left--> right
+        while (!stk1.isEmpty()) {
+            TreeNode curr = stk1.pop();
+            stk2.push(curr);
+            if (curr.leftChild != null)  stk1.push(curr.leftChild);
+            if (curr.rightChild != null) stk1.push(curr.rightChild);
         }
 
-        boolean fs = IsMirror(root1.leftChild, root2.rightChild);
-        boolean ss = IsMirror(root1.rightChild, root2.leftChild);
+        while (!stk2.isEmpty()) {
+            result.add(stk2.pop().data);
+        }
+        return result;
+    }
 
-        return fs && ss;
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode curr = root;
+
+        while (curr != null || !stack.isEmpty()) {
+            while (curr != null) {
+                res.add(curr.getData());   // Visit node
+                stack.push(curr);
+                curr = curr.getLeftChild();
+            }
+            curr = stack.pop();
+            curr = curr.getRightChild();
+        }
+        return res;
+
+    }
+
+    public List<List<Integer>> levelOrder1(TreeNode root) {
+        List<List<Integer>> res = new ArrayList<>();
+        if(root == null)    return res;
+        Deque<TreeNode> queue = new ArrayDeque<>();
+        queue.offer(root);
+        while(!queue.isEmpty()){
+            List<Integer> tmp = new ArrayList<>();
+            int l = queue.size();
+            /*First, for root this loop will run once, next time 2 times, next time 4 times*/
+            for(int i = 0; i<l; i++){
+                TreeNode  r = queue.poll();
+                tmp.add(r.getData());
+                if(r.getLeftChild() != null)  queue.offer(r.getLeftChild());
+                if(r.getRightChild() != null) queue.offer(r.getRightChild());
+            }
+            res.add(tmp);
+        }
+
+        return res;
+    }
+
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        List<List<Integer>> levels = new ArrayList<>();
+        if (root == null) {
+            return levels;
+        }
+        helper(root, 0, levels);
+        return levels;
+    }
+
+    public void helper(TreeNode node, int level, List<List<Integer>> levels) {
+        if (levels.size() == level) {
+            levels.add(new ArrayList<Integer>());
+        }
+
+        levels.get(level).add(node.getData());
+
+        if (node.getLeftChild() != null) {
+            helper(node.getLeftChild(), level + 1, levels);
+        }
+        if (node.getRightChild() != null) {
+            helper(node.getRightChild(), level + 1, levels);
+        }
     }
 
     public List<Integer> inorderReverseTraversal(TreeNode root) {
@@ -198,5 +264,23 @@ public class TreeNode {
             root1 = root1.rightChild;
         }
         return true;
+    }
+
+    public static boolean IsMirror(TreeNode root1, TreeNode root2) {
+        // TODO Auto-generated method stub
+        if (root1 == null && root2 == null) {
+            return true;
+        }
+        if (root1 == null || root2 == null) {
+            return false;
+        }
+        if (root1.data != root2.data) {
+            return false;
+        }
+
+        boolean fs = IsMirror(root1.leftChild, root2.rightChild);
+        boolean ss = IsMirror(root1.rightChild, root2.leftChild);
+
+        return fs && ss;
     }
 }

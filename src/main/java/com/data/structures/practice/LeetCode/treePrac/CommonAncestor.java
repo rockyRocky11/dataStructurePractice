@@ -9,17 +9,17 @@ public class CommonAncestor {
         //Integer[] root = {3, 5, 1, 6, 2, 0, 8, null, null, 7, 4};
         Integer[] root = {3,5,1,6,2,0,8,null,null,7,4};
        // Integer[] root = {1,2,3,null,4};
-        TreeNode tree = new TreeNode();
+        TreeNodeImpl tree = new TreeNodeImpl();
         tree = tree.inertBulkLevelOrder(root);
         //System.out.println(lowestCommonAncestor(tree, new TreeNode(5), new TreeNode(4), new TreeNode(5), new TreeNode(4)).val);
-        System.out.println(lowestCommonAncestorInOrderRecursion(tree, new TreeNode(5), new TreeNode(4)).val);
+        System.out.println(lowestCommonAncestorInOrderRecursion(tree, new TreeNodeImpl(5), new TreeNodeImpl(4)).val);
         //System.out.println(lowestCommonAncestor(tree, new TreeNode(4), new TreeNode(1), new TreeNode(4), new TreeNode(1)).val);
     }
 
-    public static TreeNode lowestCommonAncestorInOrder(TreeNode root, TreeNode p, TreeNode q) {
+    public static TreeNodeImpl lowestCommonAncestorInOrder(TreeNodeImpl root, TreeNodeImpl p, TreeNodeImpl q) {
 
-        Stack<TreeNode> stack = new Stack<>();
-        TreeNode ancestor = root;
+        Stack<TreeNodeImpl> stack = new Stack<>();
+        TreeNodeImpl ancestor = root;
         boolean l=false;
         boolean r=false;
 
@@ -40,7 +40,7 @@ public class CommonAncestor {
         return null;
     }
 
-    public static TreeNode lowestCommonAncestorInOrderRecursion(TreeNode root, TreeNode p, TreeNode q) {
+    public static TreeNodeImpl lowestCommonAncestorInOrderRecursion(TreeNodeImpl root, TreeNodeImpl p, TreeNodeImpl q) {
 
         if(root == null){
             return root;
@@ -54,17 +54,17 @@ public class CommonAncestor {
             System.out.println(root.val);
             return root;
         }
-         TreeNode l = lowestCommonAncestorInOrderRecursion( root.left,  p,  q);
-        TreeNode r = lowestCommonAncestorInOrderRecursion( root.right,  p,  q);
+         TreeNodeImpl l = lowestCommonAncestorInOrderRecursion( root.left,  p,  q);
+        TreeNodeImpl r = lowestCommonAncestorInOrderRecursion( root.right,  p,  q);
         if(l != null && r !=null){
             return root;
         }
         return l != null?l:r;
     }
 
-    public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q,TreeNode op, TreeNode oq) {
-        TreeNode pAncestor = findAncestor(root, p);
-        TreeNode qAncestor = findAncestor(root, q);
+    public static TreeNodeImpl lowestCommonAncestor(TreeNodeImpl root, TreeNodeImpl p, TreeNodeImpl q, TreeNodeImpl op, TreeNodeImpl oq) {
+        TreeNodeImpl pAncestor = findAncestor(root, p);
+        TreeNodeImpl qAncestor = findAncestor(root, q);
         if(pAncestor.val == qAncestor.val){
             return pAncestor;
         }
@@ -79,16 +79,16 @@ public class CommonAncestor {
         }
     }
 
-    public static TreeNode findAncestor(TreeNode root, TreeNode a) {
+    public static TreeNodeImpl findAncestor(TreeNodeImpl root, TreeNodeImpl a) {
 
-        TreeNode ancestor = root;
+        TreeNodeImpl ancestor = root;
         if (ancestor.val == a.val) {
             return ancestor;
         }
-        Deque<TreeNode> deque = new ArrayDeque<>();
+        Deque<TreeNodeImpl> deque = new ArrayDeque<>();
         deque.offer(ancestor);
         while (!deque.isEmpty()) {
-            TreeNode tempNode = deque.poll();
+            TreeNodeImpl tempNode = deque.poll();
             ancestor = tempNode;
             if (tempNode.left != null) {
                 if (a.val == tempNode.left.val) {

@@ -14,7 +14,7 @@ public class ConvertSortedToBalanced {
         //int[] input = {-10,-3,0,5,9};
         //int[] input = {1, 3};
         int[] input = {0,1,2,3,4,5,6};
-        TreeNode treeNode = new TreeNode();
+        TreeNodeImpl treeNode = new TreeNodeImpl();
         treeNode = treeNode.sortedArrayToBST(input);
 
         System.out.println();
