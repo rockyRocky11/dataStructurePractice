@@ -1,4 +1,4 @@
-package com.data.structures.practice.listPractice.linkedListPrac;
+package com.data.structures.practice.linkedList.fundamentals;
 
 import com.data.structures.practice.Employee;
 

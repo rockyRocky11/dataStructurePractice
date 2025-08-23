@@ -1,6 +1,6 @@
 package com.data.structures.practice.LeetCode.sorting;
 
-import com.data.structures.practice.LeetCode.linkedList.ListNode;
+import com.data.structures.practice.linkedList.fundamentals.ListNode;
 
 public class MergeKSortedLinkedList {
 

@@ -1,7 +1,6 @@
 package com.data.structures.practice.hashtable;
 
 import com.data.structures.practice.Employee;
-import com.data.structures.practice.listPractice.linkedListPrac.EmployeeDoublyLinkedList;
 
 public class ChaningHashTablePrac {
     public static void main(String[] args) {

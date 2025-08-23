@@ -1,6 +1,6 @@
 package com.data.structures.practice.LeetCode.heap;
 
-import com.data.structures.practice.LeetCode.linkedList.ListNode;
+import com.data.structures.practice.linkedList.fundamentals.ListNode;
 
 import java.util.PriorityQueue;
 

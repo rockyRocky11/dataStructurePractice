@@ -1,9 +1,7 @@
-package com.data.structures.practice.LeetCode.linkedList;
+package com.data.structures.practice.linkedList.problems;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.data.structures.practice.linkedList.fundamentals.ListNode;
+import com.data.structures.practice.linkedList.fundamentals.ListNodeCode;
 
 public class AddTwoNumbers {
     public static void main(String[] args) {
@@ -30,7 +28,7 @@ public class AddTwoNumbers {
         listNodeCode.PrintLinkedList();
         listNodeCode1.PrintLinkedList();
         ListNode node = addTwoNumbers(listNodeCode.getHead(), listNodeCode1.getHead());
-        listNodeCode.PrintLinkedList(node);
+        listNodeCode.PrintLinkedList();
 
     }
 

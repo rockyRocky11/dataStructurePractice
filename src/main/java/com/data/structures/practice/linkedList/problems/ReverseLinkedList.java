@@ -1,6 +1,7 @@
-package com.data.structures.practice.LeetCode.linkedList;
+package com.data.structures.practice.linkedList.problems;
 
-import java.util.LinkedList;
+import com.data.structures.practice.linkedList.fundamentals.ListNode;
+import com.data.structures.practice.linkedList.fundamentals.ListNodeCode;
 
 public class ReverseLinkedList {
 
@@ -16,7 +17,7 @@ public class ReverseLinkedList {
 //        listNodeCode.addToFront(1);
         listNodeCode.PrintLinkedList();
         ListNode listNodeCode1 =  reverseList(listNodeCode.getHead());
-        listNodeCode.PrintLinkedList(listNodeCode1);
+        listNodeCode.PrintLinkedList();
     }
 
     public static ListNode reverseList(ListNode head) {

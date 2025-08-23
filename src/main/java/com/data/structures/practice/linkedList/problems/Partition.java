@@ -1,4 +1,7 @@
-package com.data.structures.practice.LeetCode.linkedList;
+package com.data.structures.practice.linkedList.problems;
+
+import com.data.structures.practice.linkedList.fundamentals.ListNode;
+import com.data.structures.practice.linkedList.fundamentals.ListNodeCode;
 
 public class Partition {
     public static void main(String[] args) {
@@ -16,7 +19,7 @@ public class Partition {
 
         listNodeCode.PrintLinkedList();
         ListNode listNodeCode1 =  partition(listNodeCode.getHead(),3);
-        listNodeCode.PrintLinkedList(listNodeCode1);
+        listNodeCode.PrintLinkedList();
 
     }
 

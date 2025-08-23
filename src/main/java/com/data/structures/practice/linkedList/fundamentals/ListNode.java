@@ -1,4 +1,4 @@
-package com.data.structures.practice.LeetCode.linkedList;
+package com.data.structures.practice.linkedList.fundamentals;
 
 public class ListNode {
     public int val;

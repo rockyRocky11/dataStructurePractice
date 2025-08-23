@@ -1,4 +1,7 @@
-package com.data.structures.practice.LeetCode.linkedList;
+package com.data.structures.practice.linkedList.problems;
+
+import com.data.structures.practice.linkedList.fundamentals.ListNode;
+import com.data.structures.practice.linkedList.fundamentals.ListNodeCode;
 
 public class RemoveDuplicatesUnSorted {
     public static void main(String[] args) {
@@ -16,7 +19,7 @@ public class RemoveDuplicatesUnSorted {
 
         listNodeCode.PrintLinkedList();
         ListNode listNodeCode1 =  deleteDuplicatesSimple(listNodeCode.getHead());
-        listNodeCode.PrintLinkedList(listNodeCode1);
+        listNodeCode.PrintLinkedList();
 
 
     }

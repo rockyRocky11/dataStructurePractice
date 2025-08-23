@@ -1,4 +1,6 @@
-package com.data.structures.practice.LeetCode.linkedList;
+package com.data.structures.practice.linkedList.problems;
+
+import com.data.structures.practice.linkedList.fundamentals.ListNode;
 
 import java.util.HashMap;
 import java.util.Map;

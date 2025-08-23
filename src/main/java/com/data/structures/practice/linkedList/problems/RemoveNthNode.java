@@ -1,4 +1,7 @@
-package com.data.structures.practice.LeetCode.linkedList;
+package com.data.structures.practice.linkedList.problems;
+
+import com.data.structures.practice.linkedList.fundamentals.ListNode;
+import com.data.structures.practice.linkedList.fundamentals.ListNodeCode;
 
 import java.util.*;
 
@@ -14,7 +17,7 @@ public class RemoveNthNode {
 
         listNodeCode.PrintLinkedList();
         ListNode node = removeNthFromMiddleRunnerMethod(listNodeCode.getHead());
-        listNodeCode.PrintLinkedList(node);
+        listNodeCode.PrintLinkedList();
 
     }
 
