@@ -1,7 +1,7 @@
 package com.data.structures.practice.linkedList.problems;
 
-import com.data.structures.practice.linkedList.fundamentals.ListNode;
-import com.data.structures.practice.linkedList.fundamentals.ListNodeCode;
+import com.data.structures.practice.linkedList.fundamentals.singly.ListNode;
+import com.data.structures.practice.linkedList.fundamentals.singly.ListNodeCode;
 
 public class RemoveDuplicates {
     public static void main(String[] args) {

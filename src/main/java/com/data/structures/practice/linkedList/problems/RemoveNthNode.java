@@ -1,7 +1,7 @@
 package com.data.structures.practice.linkedList.problems;
 
-import com.data.structures.practice.linkedList.fundamentals.ListNode;
-import com.data.structures.practice.linkedList.fundamentals.ListNodeCode;
+import com.data.structures.practice.linkedList.fundamentals.singly.ListNode;
+import com.data.structures.practice.linkedList.fundamentals.singly.ListNodeCode;
 
 import java.util.*;
 
@@ -53,27 +53,26 @@ public class RemoveNthNode {
         return head;
     }
 
-    private static int toRemoveAt = 1;
 
     public static  ListNode removeNthFromEnd(ListNode head, int n) {
-        ListNode dummyNode = new ListNode(-1);
-        dummyNode.next = head;
-        deleteRecursive(dummyNode, dummyNode.next, n);
-        return dummyNode.next;
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        rem(dummy, dummy.next, n);
+        return dummy.next;
+
     }
 
-    public static void deleteRecursive(ListNode prev, ListNode curr,  int n) {
-        if(curr == null){
-            return;
+    public static int rem(ListNode prev, ListNode cur, int n) {
+
+        if (cur == null)
+            return 0;
+
+        int idx =rem(prev.next, cur.next, n)+1;
+
+        if (idx == n) {
+            prev.next = cur.next;
         }
-
-        deleteRecursive(prev.next, curr.next, n);
-
-        if (toRemoveAt == n){
-            prev.next = curr.next;
-        }
-
-        toRemoveAt++;
+        return idx;
     }
 
     public static ListNode removeNode(ListNode head, int n) {
