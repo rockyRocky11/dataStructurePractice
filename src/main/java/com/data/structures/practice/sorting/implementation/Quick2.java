@@ -42,10 +42,14 @@ public class Quick2 {
             while (i < j && inputArray[--j] >= pivotElement) ;
             if (i < j) {
                 inputArray[i] = inputArray[j];
+                int[] slice2 = Arrays.copyOfRange(inputArray, start, end);
+                System.out.println(Arrays.toString(slice2));
             }
             while (i < j && inputArray[++i] <= pivotElement);
             if (i < j) {
                 inputArray[j] = inputArray[i];
+                int[] slice3 = Arrays.copyOfRange(inputArray, start, end);
+                System.out.println(Arrays.toString(slice3));
             }
         }
         inputArray[j] = pivotElement;

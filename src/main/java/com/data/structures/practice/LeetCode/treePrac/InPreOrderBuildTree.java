@@ -4,8 +4,8 @@ import java.util.*;
 
 public class InPreOrderBuildTree {
     public static void main(String[] args) {
-        //int[] preorder = {3,9,20,15,7}, inorder = {9,3,15,20,7};
-        int[] preorder = {1, 2}, inorder = {2, 1};
+        int[] preorder = {3,9,20,15,7}, inorder = {9,3,15,20,7};
+       // int[] preorder = {1, 2}, inorder = {2, 1};
         System.out.println(buildTreeInOrder(preorder, inorder));
         System.out.println(buildTreeWithoutMap(preorder, inorder));
     }
