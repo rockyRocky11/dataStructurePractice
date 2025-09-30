@@ -186,7 +186,7 @@ public class Practice {
         System.out.println(x+" "+y);
     }
 
-    public static void bitwiseMaskPattern(){
+    public static void  bitwiseMaskPattern(){
 
         test(0b11010110, 3);  // clear 3 lowest bits
         test(0b1011, 2);      // clear 2 lowest bits

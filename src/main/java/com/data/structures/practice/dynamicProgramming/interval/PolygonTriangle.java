@@ -31,15 +31,20 @@ class SolutionPolygonTriangle {
     Space: O(n^2) for DP table*/
 
     public int rec(int[] values, int i, int j){
+        System.out.print(" interval i="+i+" j="+j);
         if(j-i<2)return 0;
         if(dp[i][j] != -1)return dp[i][j];
         int minScore = Integer.MAX_VALUE;
         for(int k=i+1;k<j;k++){
+            System.out.print("  K="+k);
+            System.out.print(" For i="+i+" k "+k+" j="+j);
             int score = values[i]*values[k]*values[j];
             score+=rec(values, i, k)+rec(values, k, j);
             minScore = Math.min(minScore, score);
         }
         dp[i][j] = minScore;
+        //System.out.print(" minScore="+minScore);
+        System.out.println();
         return minScore;
     }
 }
@@ -53,7 +58,7 @@ class SolutionPolygonTriangleBottomUp {
         int n = values.length;
         dp = new int[n][n];
         // intervals shorter than 2 → already 0 (default initialization)
-
+        //int[] values ={3,7,4,5};
         // build intervals by increasing length
         for(int len=2;len<n;len++){// interval length
             for(int i=0;i+len<n;i++){

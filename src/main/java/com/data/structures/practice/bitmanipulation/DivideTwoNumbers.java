@@ -17,10 +17,12 @@ public class DivideTwoNumbers {
         long b = Math.abs((long) divisor);
         long result = 0;
 
+        //We are basically subtracting all the multiples of b from a
         // Bit-shifting division logic
         while (a >= b) {
             long tempDivisor = b;
             long multiple = 1;
+
 
             while (a >= (tempDivisor << 1)) {
                 tempDivisor <<= 1;
